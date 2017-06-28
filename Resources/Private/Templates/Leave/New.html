@@ -1,0 +1,55 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New leave</f:section>
+
+<f:section name="Content">
+    <p>Just fill out the following form to create a new leave:</p>
+
+    <f:form action="create" objectName="newLeave">
+        <ol>
+            <li>
+                <label for="reason">Reason</label>
+                <f:form.textfield property="reason" id="reason" />
+            </li>
+        
+            <li>
+                <label for="createDate">Create date</label>
+                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
+            </li>
+        
+            <li>
+                <label for="fromDate">From date</label>
+                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="fromDate" id="fromDate" />
+            </li>
+        
+            <li>
+                <label for="toDate">To date</label>
+                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="toDate" id="toDate" />
+            </li>
+        
+            <li>
+                <label for="hasTeamLeaderApproved">Has team leader approved</label>
+                <f:form.textfield property="hasTeamLeaderApproved" id="hasTeamLeaderApproved" />
+            </li>
+        
+            <li>
+                <label for="hasDirectorApproved">Has director approved</label>
+                <f:form.textfield property="hasDirectorApproved" id="hasDirectorApproved" />
+            </li>
+        
+            <li>
+                <label for="teamLeader">Team leader</label>
+                <f:form.textfield property="teamLeader" id="teamLeader" />
+            </li>
+        
+            <li>
+                <label for="employee">Employee</label>
+                <f:form.textfield property="employee" id="employee" />
+            </li>
+        
+            <li>
+                <f:form.submit value="Create" />
+            </li>
+        </ol>
+    </f:form>
+</f:section>

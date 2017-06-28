@@ -1,0 +1,43 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit employee "{employee.name}"</f:section>
+
+<f:section name="Content">
+    <f:form action="update" object="{employee}" objectName="employee">
+        <ol>
+            <li>
+                <label for="gender">Gender</label>
+                <f:form.textfield property="gender" id="gender" />
+            </li>
+        
+            <li>
+                <label for="address">Address</label>
+                <f:form.textfield property="address" id="address" />
+            </li>
+        
+            <li>
+                <label for="contactNumber">Contact number</label>
+                <f:form.textfield property="contactNumber" id="contactNumber" />
+            </li>
+        
+            <li>
+                <label for="createDate">Create date</label>
+                <f:form.textfield type="datetime" value="{employee.createDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
+            </li>
+        
+            <li>
+                <label for="token">Token</label>
+                <f:form.textfield property="token" id="token" />
+            </li>
+        
+            <li>
+                <label for="leaves">Leaves</label>
+                <f:form.textfield property="leaves" id="leaves" />
+            </li>
+        
+            <li>
+                <f:form.submit value="Update" />
+            </li>
+        </ol>
+    </f:form>
+</f:section>

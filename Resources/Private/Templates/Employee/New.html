@@ -1,0 +1,45 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New employee</f:section>
+
+<f:section name="Content">
+    <p>Just fill out the following form to create a new employee:</p>
+
+    <f:form action="create" objectName="newEmployee">
+        <ol>
+            <li>
+                <label for="gender">Gender</label>
+                <f:form.textfield property="gender" id="gender" />
+            </li>
+        
+            <li>
+                <label for="address">Address</label>
+                <f:form.textfield property="address" id="address" />
+            </li>
+        
+            <li>
+                <label for="contactNumber">Contact number</label>
+                <f:form.textfield property="contactNumber" id="contactNumber" />
+            </li>
+        
+            <li>
+                <label for="createDate">Create date</label>
+                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
+            </li>
+        
+            <li>
+                <label for="token">Token</label>
+                <f:form.textfield property="token" id="token" />
+            </li>
+        
+            <li>
+                <label for="leaves">Leaves</label>
+                <f:form.textfield property="leaves" id="leaves" />
+            </li>
+        
+            <li>
+                <f:form.submit value="Create" />
+            </li>
+        </ol>
+    </f:form>
+</f:section>

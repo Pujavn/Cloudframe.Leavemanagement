@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of employees</f:section>
+
+<f:section name="Content">
+    <f:if condition="{employees}">
+        <f:then>
+            <ul>
+                <f:for each="{employees}" as="employee">
+                    <li>
+                        <f:link.action action="show" arguments="{employee: employee}">{employee.name}</f:link.action>
+                        <f:link.action action="edit" arguments="{employee: employee}">Edit</f:link.action>
+                        <f:form action="delete" arguments="{employee: employee}">
+                            <f:form.submit value="Delete" />
+                        </f:form>
+                    </li>
+                </f:for>
+            </ul>
+        </f:then>
+        <f:else>
+            <p>No employees created yet.</p>
+        </f:else>
+    </f:if>
+    <p><f:link.action action="new">Create a new employee</f:link.action></p>
+</f:section>

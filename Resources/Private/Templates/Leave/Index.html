@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of leaves</f:section>
+
+<f:section name="Content">
+    <f:if condition="{leaves}">
+        <f:then>
+            <ul>
+                <f:for each="{leaves}" as="leave">
+                    <li>
+                        <f:link.action action="show" arguments="{leave: leave}">{leave.name}</f:link.action>
+                        <f:link.action action="edit" arguments="{leave: leave}">Edit</f:link.action>
+                        <f:form action="delete" arguments="{leave: leave}">
+                            <f:form.submit value="Delete" />
+                        </f:form>
+                    </li>
+                </f:for>
+            </ul>
+        </f:then>
+        <f:else>
+            <p>No leaves created yet.</p>
+        </f:else>
+    </f:if>
+    <p><f:link.action action="new">Create a new leave</f:link.action></p>
+</f:section>

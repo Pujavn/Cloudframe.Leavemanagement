@@ -1,0 +1,53 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit leave "{leave.name}"</f:section>
+
+<f:section name="Content">
+    <f:form action="update" object="{leave}" objectName="leave">
+        <ol>
+            <li>
+                <label for="reason">Reason</label>
+                <f:form.textfield property="reason" id="reason" />
+            </li>
+        
+            <li>
+                <label for="createDate">Create date</label>
+                <f:form.textfield type="datetime" value="{leave.createDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
+            </li>
+        
+            <li>
+                <label for="fromDate">From date</label>
+                <f:form.textfield type="datetime" value="{leave.fromDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="fromDate" id="fromDate" />
+            </li>
+        
+            <li>
+                <label for="toDate">To date</label>
+                <f:form.textfield type="datetime" value="{leave.toDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="toDate" id="toDate" />
+            </li>
+        
+            <li>
+                <label for="hasTeamLeaderApproved">Has team leader approved</label>
+                <f:form.textfield property="hasTeamLeaderApproved" id="hasTeamLeaderApproved" />
+            </li>
+        
+            <li>
+                <label for="hasDirectorApproved">Has director approved</label>
+                <f:form.textfield property="hasDirectorApproved" id="hasDirectorApproved" />
+            </li>
+        
+            <li>
+                <label for="teamLeader">Team leader</label>
+                <f:form.textfield property="teamLeader" id="teamLeader" />
+            </li>
+        
+            <li>
+                <label for="employee">Employee</label>
+                <f:form.textfield property="employee" id="employee" />
+            </li>
+        
+            <li>
+                <f:form.submit value="Update" />
+            </li>
+        </ol>
+    </f:form>
+</f:section>
