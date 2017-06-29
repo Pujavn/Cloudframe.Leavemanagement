@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @Flow\Entity
  */
-class Employee {
+class Employee extends \TYPO3\Flow\Package\MetaData\Person{
 
 	/**
 	 * The gender

@@ -81,7 +81,7 @@ class EmployeeController extends ActionController
     {
         $this->employeeRepository->remove($employee);
         $this->addFlashMessage('Deleted a employee.');
-        echo "hi"exit;
+        echo "hi"; exit;
         $this->redirect('index');
     }
 

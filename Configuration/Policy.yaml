@@ -1,0 +1,9 @@
+roles:
+  Cloudframe.Leavemanagement:Director:
+    privileges:[]
+
+  Cloudframe.Leavemanagement:Customer:
+    privileges:[]
+
+  Cloudframe.Leavemanagement:Developer:
+    privileges:[]

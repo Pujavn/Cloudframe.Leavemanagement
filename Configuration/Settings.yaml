@@ -1,0 +1,32 @@
+#                                                                        #
+# Example Settings                                                       #
+#                                                                        #
+# This file contains settings for various parts of the application.      #
+# Copy this file to Settings.yaml, and adjust as necessary.              #
+#                                                                        #
+# Please refer to the default settings file(s) or the manuals for        #
+# possible configuration options.                                        #
+#                                                                        #
+
+
+#TYPO3:
+#  Flow:
+#    security:
+#      authentication:
+#        authenticationStrategy: oneToken
+#        providers:
+#          DefaultProvider:
+#            provider: 'PersistedUsernamePasswordProvider'
+#            entryPoint: 'WebRedirect'
+#            entryPointOptions:
+#              uri: 'employee/login'
+            
+Cloudframe:
+  Leavemanagement:
+    roles:
+      1: 'Cloudframe.Leavemanagement:Director'
+      2: 'Cloudframe.Leavemanagement:Teamleader'
+      3: 'Cloudframe.LeaveManagement:Developer'
+       # if you want to log executed SQL queries, enable the next 2 lines
+      doctrine:
+        sqlLogger: 'TYPO3\Flow\Persistence\Doctrine\Logging\SqlLogger'
