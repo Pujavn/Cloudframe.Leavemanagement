@@ -26,7 +26,7 @@ Cloudframe:
     roles:
       1: 'Cloudframe.Leavemanagement:Director'
       2: 'Cloudframe.Leavemanagement:Teamleader'
-      3: 'Cloudframe.LeaveManagement:Developer'
+      3: 'Cloudframe.Leavemanagement:Developer'
        # if you want to log executed SQL queries, enable the next 2 lines
       doctrine:
         sqlLogger: 'TYPO3\Flow\Persistence\Doctrine\Logging\SqlLogger'

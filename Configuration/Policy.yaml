@@ -2,7 +2,7 @@ roles:
   Cloudframe.Leavemanagement:Director:
     privileges:[]
 
-  Cloudframe.Leavemanagement:Customer:
+  Cloudframe.Leavemanagement:Teamleader:
     privileges:[]
 
   Cloudframe.Leavemanagement:Developer:

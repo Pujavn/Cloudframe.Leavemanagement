@@ -1,0 +1,48 @@
+<!-- Navigation Menu -->
+<ul class="nav nav-pills nav-bg">
+    <!--<f:security.ifHasRole role="Director">
+        <li>
+        <f:link.action action="index" controller="leave" >Show All Leaves</f:link.action>
+        </li>
+        <li>
+        <f:link.action action="new" controller="Employee" >Register Employee</f:link.action>
+        </li>
+        <li>
+        <f:link.action action="index" controller="employee" >Show All Employees</f:link.action>
+        </li>
+
+    </f:security.ifHasRole>
+    <f:security.ifHasRole role="Teamleader">
+
+        <li>
+        <f:link.action action="list" controller="Leave" >List Leaves </f:link.action>
+        </li>
+        <li>
+        <f:link.action action="profile" controller="Employee">My Profile</f:link.action>
+        </li>
+    </f:security.ifHasRole>
+    <f:security.ifHasRole role="Developer">
+        <li>
+        <f:link.action action="new" controller="Leave" >Apply for Leave</f:link.action>
+        </li>
+        <li>
+        <f:link.action action="view" controller="Leave">My Leave Record</f:link.action>
+        </li>
+        <li>
+        <f:link.action action="profile" controller="Employee">My Profile</f:link.action>
+        </li>
+    </f:security.ifHasRole>-->
+    <li>
+        <f:link.action action="new" controller="Leave" >Apply for Leave</f:link.action>
+    </li>
+    <li>
+        <f:link.action action="view" controller="Leave">My Leave Record</f:link.action>
+    </li>
+    <li>
+        <f:link.action action="profile" controller="Employee">My Profile</f:link.action>
+    </li>
+    <li>
+        <f:link.action action="new" controller="Employee" >Register Employee</f:link.action>
+    </li>
+</ul>
+<!--End of Navigation Menu-->

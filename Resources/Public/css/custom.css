@@ -1,0 +1,76 @@
+/*
+    Document   : custom
+    Created on : May 14, 2013, 10:25:53 AM
+    Author     : new4
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root {
+    display: block;
+}
+ul li{
+	list-style: none;
+}
+label.error{
+    width: 250px;
+    display: inline;
+    color: red;
+	padding-left: 10px;
+}
+#header-bg {
+	background:url(../images/bg-header.jpg);
+	height:130px;
+}
+.top-header {
+    background:url(../images/eLeaveLogo.png) no-repeat;
+    height:150px;
+}
+footer{
+	background:url(../images/bg-footer.png) repeat-x;
+	height:130px;
+    text-align:center;
+}
+.container{
+    min-height: 520px;
+	padding: 10px;
+
+}
+.title{
+	color:#E49E06;
+    text-align: center;
+    height:5%;
+}
+.welcome{
+    text-align:center;
+    color: #E49E06;
+}
+.main-content {
+	padding: 20px;
+	margin: auto;
+	width: 80%;
+}
+table tr.even{
+	background-color:#ECFFB3;
+}
+.flashmessages {
+	color:#E49E06;
+}
+.error-msg{
+	color: red;
+}
+.page-navigation .current {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: right;
+    line-height: 28px;
+    padding: 0 14px;
+    text-decoration: none;
+	margin-left: 150px;
+}

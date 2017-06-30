@@ -1,0 +1,18 @@
+{namespace employee = Cloudframe\Leavemanagement\ViewHelpers}
+<f:security.ifAuthenticated>
+    <f:then>
+        <ul class="nav nav-pills">
+            <li>
+
+            <f:link.action action="profile" controller="Employee">
+               Welcome <employee:login></employee:login>
+            </f:link.action>
+            </li>
+            <li>
+            <f:link.action action="logout" controller="employee">Logout</f:link.action>
+            </li>
+        </ul>
+
+    </f:then>
+
+</f:security.ifAuthenticated>

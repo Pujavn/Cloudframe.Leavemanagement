@@ -1,38 +1,49 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Show employee"{employee.name}"</f:section>
+<f:section name="Title">Show employee "{employee.name}"</f:section>
 
 <f:section name="Content">
-    <table>
-        <tr>
-            <th>Gender</th>
-            <td>{employee.gender}</td>
-        </tr>
-    
-        <tr>
-            <th>Address</th>
-            <td>{employee.address}</td>
-        </tr>
-    
-        <tr>
-            <th>Contact number</th>
-            <td>{employee.contactNumber}</td>
-        </tr>
-    
-        <tr>
-            <th>Create date</th>
-            <td>{employee.createDate -> f:format.date(format: 'Y-m-d H:i')}</td>
-        </tr>
-    
-        <tr>
-            <th>Token</th>
-            <td>{employee.token}</td>
-        </tr>
-    
-        <tr>
-            <th>Leaves</th>
-            <td>{employee.leaves}</td>
-        </tr>
-    </table>
-    <f:link.action action="index">Back</f:link.action>
+	<h3>Profile</h3>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<td>{employee.name}</td>
+		</tr>
+		<tr>
+			<th>Gender</th>
+			<td><f:if condition="{employee.gender} == 0">
+			<f:then>Male</f:then>
+			<f:else>Female</f:else>
+			</f:if>
+			</td>
+		</tr>
+		<tr>
+			<th>Address</th>
+			<td>{employee.address}</td>
+		</tr>
+		<tr>
+			<th>Role</th>
+			<td>
+		<f:for each="{employee.accounts}" as="account">
+			<f:for each="{account.roles}" as="role">
+				<f:if condition="{role.identifier} == 'Cloudframe.Leavemanagement:Teamleader'">
+					<f:then>
+						Team Leader
+					</f:then>
+					<f:else>
+						Developer
+					</f:else>
+				</f:if>
+
+			</f:for>
+
+		</f:for>
+			</td>
+		</tr>
+		<tr>
+			<th>Contact Number</th>
+			<td>{employee.contactNumber}</td>
+		</tr>
+	</table>
+	<f:link.action action="index">Back</f:link.action>
 </f:section>

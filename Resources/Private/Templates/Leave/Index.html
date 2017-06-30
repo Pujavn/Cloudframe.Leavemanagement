@@ -3,23 +3,30 @@
 <f:section name="Title">A list of leaves</f:section>
 
 <f:section name="Content">
-    <f:if condition="{leaves}">
-        <f:then>
-            <ul>
-                <f:for each="{leaves}" as="leave">
-                    <li>
-                        <f:link.action action="show" arguments="{leave: leave}">{leave.name}</f:link.action>
-                        <f:link.action action="edit" arguments="{leave: leave}">Edit</f:link.action>
-                        <f:form action="delete" arguments="{leave: leave}">
-                            <f:form.submit value="Delete" />
-                        </f:form>
-                    </li>
-                </f:for>
-            </ul>
-        </f:then>
-        <f:else>
-            <p>No leaves created yet.</p>
-        </f:else>
-    </f:if>
-    <p><f:link.action action="new">Create a new leave</f:link.action></p>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/jquery-1.8.2.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jqgrid/js/i18n/grid.locale-en.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/locallang-en.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jqgrid/js/jquery.jqGrid.min.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jqgrid/js/jquery-ui-1.8.2.custom.min.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jquery.ui.core.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jquery.ui.position.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jqgrid/grid.filter.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/jquery.contextmenu.js')}"></script>
+	<script type="text/javascript" src="{f:uri.resource(path: 'js/grid/customGrids.js')}"></script>
+
+	<link rel="stylesheet" href="{f:uri.resource(path: 'js/grid/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css')}" type="text/css" media="screen, projection, tv" />
+	<link rel="stylesheet" href="{f:uri.resource(path: 'js/grid/jqgrid/themes/ui.multiselect.css')}" type="text/css" media="screen, projection, tv" />
+
+	<link rel="stylesheet" href="{f:uri.resource(path: 'js/grid/jqgrid/themes/ui.jqgrid.css')}" type="text/css" media="screen, projection, tv" />
+	<script type="text/javascript">leaveListGrid = "{f:uri.action(package:'Cloudframe.Leavemanagement', action:'ajax', controller:'leave')}";</script>
+	<f:flashMessages />
+	<f:if condition="{leaves}">
+		<f:then>
+			<table id="searchjqgrid"></table>
+			<div id="paginationdiv"></div>
+		</f:then>
+		<f:else>
+			<p>No leaves applied yet.</p>
+		</f:else>
+	</f:if>
 </f:section>

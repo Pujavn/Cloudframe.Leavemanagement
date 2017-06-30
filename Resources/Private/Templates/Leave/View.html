@@ -1,0 +1,52 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of Leaves</f:section>
+
+<f:section name="Content">
+    <f:if condition="{employee.leaves}">
+        <f:then>
+            <ul>{employee.name.fullName}
+                <table class="table" >
+                    <tr>
+                       <th>Reason</th>
+                       <th>Applied On</th>
+                       <th>From</th>
+                       <th>To</th>
+					   <th>Team Leader</th>
+					   <th>Team Leader Approval</th>
+					   <th>Director Approval</th>
+                    </tr>
+                    <f:for each="{employee.leaves}" as="leave">
+					<tr>
+						<td>{leave.reason}</td>
+						<td>{leave.createDate -> f:format.date(format: 'Y-m-d')}</td>
+						<td>{leave.fromDate -> f:format.date(format: 'Y-m-d')}</td>
+						<td>{leave.toDate -> f:format.date(format: 'Y-m-d')}</td>
+						<td>
+							<f:security.ifHasRole role="Developer">
+								<f:then>{leave.teamLeader.name.fullName}</f:then>
+								<f:else>---</f:else>
+							</f:security.ifHasRole>
+						</td>
+						<td>
+							<f:if condition="{leave.hasTeamLeaderApproved} == 1">
+								<f:then>Yes</f:then>
+								<f:else>No</f:else>
+							</f:if>
+						</td>
+						<td>
+							<f:if condition="{leave.hasDirectorApproved} == 1">
+								<f:then>Yes</f:then>
+								<f:else>No</f:else>
+							</f:if>
+						</td>
+                    </tr>
+                    </f:for>
+                 </table>
+            </ul>
+        </f:then>
+        <f:else>
+            <p>No leaves applied yet.</p>
+        </f:else>
+    </f:if>
+</f:section>

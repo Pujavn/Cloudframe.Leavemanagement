@@ -1,0 +1,60 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Leave</f:section>
+
+<f:section name="Content">
+    <f:security.ifAuthenticated>
+		 <f:security.ifHasRole role="Teamleader">
+			 <f:then><h4>Team Leader Leave Approval</h4></f:then>
+			 <f:else><h4>Director Leave Approval</h4></f:else>
+		 </f:security.ifHasRole>
+        <table class="table">
+            <f:form action="leaveApprove" object="{leave}" name="leave">
+                <tr>
+                    <th>Reason</th>
+                    <td>{leave.reason}</td>
+                </tr>
+
+                <tr>
+                    <th>Applied On</th>
+                    <td>{leave.createDate -> f:format.date(format: 'Y-m-d')}</td>
+                </tr>
+
+                <tr>
+                    <th>From</th>
+                    <td>{leave.fromDate -> f:format.date(format: 'Y-m-d')}</td>
+                </tr>
+
+                <tr>
+                    <th>To</th>
+                    <td>{leave.toDate -> f:format.date(format: 'Y-m-d')}</td>
+                </tr>
+
+                <tr>
+                    <th>Employee</th>
+                    <td>{leave.employee.name.fullName}</td>
+                </tr>
+                <tr>
+                    <th>Approval</th>
+                    <td>
+                <f:security.ifHasRole role="Teamleader">
+                    <f:form.radio property="hasTeamLeaderApproved" value="1" />Approve
+                    <f:form.radio property="hasTeamLeaderApproved" value="0" />Disapprove
+                </f:security.ifHasRole>
+                <f:security.ifHasRole role="Director">
+                    <f:form.radio property="hasDirectorApproved" value="1" />Approve
+                    <f:form.radio property="hasDirectorApproved" value="0" />Disapprove
+                </f:security.ifHasRole>
+                </td>
+
+                </tr>
+                <tr>
+                    <td>
+                <f:form.submit value="Submit" class="btn"/>
+                </td>
+                </tr>
+            </f:form>
+    </f:security.ifAuthenticated>
+</table>
+
+</f:section>

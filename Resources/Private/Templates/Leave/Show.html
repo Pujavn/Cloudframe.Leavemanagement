@@ -1,48 +1,41 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Show leave"{leave.name}"</f:section>
+<f:section name="Title">Show leave "{leave.name}"</f:section>
 
 <f:section name="Content">
-    <table>
-        <tr>
-            <th>Reason</th>
-            <td>{leave.reason}</td>
-        </tr>
-    
-        <tr>
-            <th>Create date</th>
-            <td>{leave.createDate -> f:format.date(format: 'Y-m-d H:i')}</td>
-        </tr>
-    
-        <tr>
-            <th>From date</th>
-            <td>{leave.fromDate -> f:format.date(format: 'Y-m-d H:i')}</td>
-        </tr>
-    
-        <tr>
-            <th>To date</th>
-            <td>{leave.toDate -> f:format.date(format: 'Y-m-d H:i')}</td>
-        </tr>
-    
-        <tr>
-            <th>Has team leader approved</th>
-            <td>{leave.hasTeamLeaderApproved}</td>
-        </tr>
-    
-        <tr>
-            <th>Has director approved</th>
-            <td>{leave.hasDirectorApproved}</td>
-        </tr>
-    
-        <tr>
-            <th>Team leader</th>
-            <td>{leave.teamLeader}</td>
-        </tr>
-    
-        <tr>
-            <th>Employee</th>
-            <td>{leave.employee}</td>
-        </tr>
-    </table>
-    <f:link.action action="index">Back</f:link.action>
+	<table>
+		<tr>
+			<th>Reason</th>
+			<td>{leave.reason}</td>
+		</tr>
+                <tr>
+                    <th>Create date</th>
+                    <td>{leave.createDate -> f:format.date(format: 'Y-m-d H:i')}</td>
+                </tr>
+                <tr>
+			<th>From</th>
+			<td>{leave.fromDate}</td>
+		</tr>
+                <tr>
+			<th>To</th>
+			<td>{leave.toDate}</td>
+		</tr>
+                <tr>
+			<th>Director Approval</th>
+			<td>{leave.hasDirectorApproved}</td>
+		</tr>
+                <tr>
+			<th>Team Leader Approval</th>
+			<td>{leave.hasTeamLeaderApproved}</td>
+		</tr>
+                <tr>
+			<th>Employee</th>
+			<td>{leave.employee}</td>
+		</tr>
+                <tr>
+			<th>Team Leader</th>
+			<td>{leave.teamLeader}</td>
+		</tr>
+	</table>
+	<f:link.action action="index">Back</f:link.action>
 </f:section>

@@ -1,0 +1,45 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of Employees</f:section>
+
+<f:section name="Content">
+
+
+    <script type="text/javascript" charset="utf-8" src="{f:uri.resource(path: 'js/DataTables/media/js/jquery.js')}"></script>
+    <script type="text/javascript" charset="utf-8" src="{f:uri.resource(path: 'js/DataTables/media/js/jquery.dataTables.js')}"></script>
+
+    <link rel="stylesheet" href="{f:uri.resource(path: 'js/DataTables/media/css/demo_table.css')}" type="text/css" media="screen, projection, tv" />
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#table_id').dataTable();
+        } );
+    </script>
+    <script type="text/javascript">leaveListGrid = "{f:uri.action(package:'Cloudframe.Leavemanagement', action:'ajax', controller:'employee')}";</script>
+    <f:flashMessages />
+    <f:if condition="{employees}">
+        <f:then>
+            <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1 Data 1</td>
+                        <td>Row 1 Data 2</td>
+                    </tr>
+                    <tr>
+                        <td>Row 2 Data 1</td>
+                        <td>Row 2 Data 2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </f:then>
+        <f:else>
+            <p>Not yet applied for leave.</p>
+        </f:else>
+    </f:if>
+</f:section>

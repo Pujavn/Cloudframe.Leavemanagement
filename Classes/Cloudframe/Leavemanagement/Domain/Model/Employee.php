@@ -17,7 +17,8 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	/**
 	 * The gender
 	 * @var boolean
-	 *
+	 * @Flow\Validate(type="NotEmpty")
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $gender;
 
@@ -26,11 +27,12 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	 * @var string
 	 * @Flow\Validate(type="NotEmpty")
 	 * @Flow\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $address;
 
 	/**
-	 * The contact number0
+	 * The contact number
 	 * @var string
 	 * @Flow\Validate(type="NotEmpty")
 	 */
@@ -59,18 +61,23 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	 * Constructs Date
 	 */
 	public function __construct() {
+		parent::__construct();
 		$this->createDate = new \DateTime();
 	}
 
 	/**
-	 * @return boolean
+	 * Get the Employee's gender
+	 *
+	 * @return boolean The Employee's gender
 	 */
 	public function getGender() {
 		return $this->gender;
 	}
 
 	/**
-	 * @param boolean $gender
+	 * Sets this Employee's gender
+	 *
+	 * @param boolean $gender The Employee's gender
 	 * @return void
 	 */
 	public function setGender($gender) {
@@ -78,14 +85,18 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
-	 * @return string
+	 * Get the Employee's address
+	 *
+	 * @return string The Employee's address
 	 */
 	public function getAddress() {
 		return $this->address;
 	}
 
 	/**
-	 * @param string $address
+	 * Sets this Employee's address
+	 *
+	 * @param string $address The Employee's address
 	 * @return void
 	 */
 	public function setAddress($address) {
@@ -93,7 +104,9 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
-	 * @return string
+	 * Get the Employee's contact number
+	 *
+	 * @return integer The Employee's contact number
 	 */
 	public function getContactNumber() {
 		return $this->contactNumber;
@@ -108,14 +121,18 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
-	 * @return \DateTime
+	 * Get the Employee's create date
+	 *
+	 * @return \DateTime The Employee's create date
 	 */
 	public function getCreateDate() {
 		return $this->createDate;
 	}
 
 	/**
-	 * @param \DateTime $createDate
+	 * Sets this Employee's create date
+	 *
+	 * @param \DateTime $createDate The Employee's create date
 	 * @return void
 	 */
 	public function setCreateDate($createDate) {
@@ -123,14 +140,18 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
-	 * @return string
+	 * Get the Employee's token
+	 *
+	 * @return string The Employee's token
 	 */
 	public function getToken() {
 		return $this->token;
 	}
 
 	/**
-	 * @param string $token
+	 * Sets this Employee's token
+	 *
+	 * @param string $token The Employee's token
 	 * @return void
 	 */
 	public function setToken($token) {
@@ -138,6 +159,8 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
+	 * Get the Employee's leaves
+     * 
 	 * @return \Doctrine\Common\Collections\Collection
 	 */
 	public function getLeaves() {
@@ -145,6 +168,8 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	}
 
 	/**
+	 * Sets this Employee's leaves
+     * 
 	 * @param \Doctrine\Common\Collections\Collection $leaves
 	 * @return void
 	 */

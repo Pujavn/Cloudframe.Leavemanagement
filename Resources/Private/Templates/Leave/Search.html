@@ -1,0 +1,50 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of leaves</f:section>
+
+<f:section name="Content">
+
+
+   <script type="text/javascript" charset="utf-8" src="{f:uri.resource(path: 'js/DataTables/media/js/jquery.js')}"></script>
+    <script type="text/javascript" charset="utf-8" src="{f:uri.resource(path: 'js/DataTables/media/js/jquery.dataTables.js')}"></script>
+
+    <link rel="stylesheet" href="{f:uri.resource(path: 'js/DataTables/media/css/demo_table.css')}" type="text/css" media="screen, projection, tv" />
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+    $('#example').dataTable( {
+        "bProcessing": true,
+        "sAjaxSource": '..js/DataTables/examples/ajax/sources/arrays.txt'
+    } );
+} );
+    </script>
+    <script type="text/javascript">leaveListGrid = "{f:uri.action(package:'Cloudframe.Leavemanagement', action:'ajax', controller:'leave')}";</script>
+    <f:flashMessages />
+    <f:if condition="{leaves}">
+        <f:then>
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+                <thead>
+                <tr>
+                    <th width="30%">Browser</th>
+                    <th width="20%">Rendering engine</th>
+                    <th width="18%">Platform(s)</th>
+                    <th width="20%">Engine version</th>
+                    <th width="12%">CSS grade</th>
+                </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Browser</th>
+                        <th>Rendering engine</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </f:then>
+        <f:else>
+            <p>Not yet applied for leave.</p>
+        </f:else>
+    </f:if>
+</f:section>

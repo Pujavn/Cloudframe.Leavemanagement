@@ -48,7 +48,7 @@ class Leave {
 	protected $hasTeamLeaderApproved;
 
 	/**
-	 * The has directory approved
+	 * The has director approved
 	 * @var boolean
 	 */
 	protected $hasDirectorApproved;
@@ -77,14 +77,18 @@ class Leave {
 	}
 
 	/**
-	 * @return string
+	 * Get the Leave's reason
+	 *
+	 * @return string The Leave's reason
 	 */
 	public function getReason() {
 		return $this->reason;
 	}
 
 	/**
-	 * @param string $reason
+	 * Sets this Leave's reason
+	 *
+	 * @param string $reason The Leave's reason
 	 * @return void
 	 */
 	public function setReason($reason) {
@@ -92,14 +96,18 @@ class Leave {
 	}
 
 	/**
-	 * @return \DateTime
+	 * Get the Leave's create date
+	 *
+	 * @return \DateTime The Leave's create date
 	 */
 	public function getCreateDate() {
 		return $this->createDate;
 	}
 
 	/**
-	 * @param \DateTime $createDate
+	 * Sets this Leave's create date
+	 *
+	 * @param \DateTime $createDate The Leave's create date
 	 * @return void
 	 */
 	public function setCreateDate($createDate) {
@@ -107,14 +115,18 @@ class Leave {
 	}
 
 	/**
-	 * @return \DateTime
+	 * Get the Leave's from date
+	 *
+	 * @return \DateTime The Leave's from date
 	 */
 	public function getFromDate() {
 		return $this->fromDate;
 	}
 
 	/**
-	 * @param \DateTime $fromDate
+	 * Sets this Leave's from date
+	 *
+	 * @param \DateTime $fromDate The Leave's from date
 	 * @return void
 	 */
 	public function setFromDate($fromDate) {
@@ -122,14 +134,18 @@ class Leave {
 	}
 
 	/**
-	 * @return \DateTime
+	 * Get the Leave's to date
+	 *
+	 * @return \DateTime The Leave's to date
 	 */
 	public function getToDate() {
 		return $this->toDate;
 	}
 
 	/**
-	 * @param \DateTime $toDate
+	 * Sets this Leave's to date
+	 *
+	 * @param \DateTime $toDate The Leave's to date
 	 * @return void
 	 */
 	public function setToDate($toDate) {
@@ -137,14 +153,18 @@ class Leave {
 	}
 
 	/**
-	 * @return boolean
+	 * Get the Leave's has team leader approved
+	 *
+	 * @return boolean The Leave's has teamleader approved
 	 */
 	public function getHasTeamLeaderApproved() {
 		return $this->hasTeamLeaderApproved;
 	}
 
 	/**
-	 * @param boolean $hasTeamLeaderApproved
+	 * Sets this Leave's has team leader approved
+	 *
+	 * @param boolean $hasTeamLeaderApproved The Leave's has teamleader approved
 	 * @return void
 	 */
 	public function setHasTeamLeaderApproved($hasTeamLeaderApproved) {
@@ -152,14 +172,19 @@ class Leave {
 	}
 
 	/**
-	 * @return boolean
+	 * Get the Leave's has director approved
+	 *
+	 * @return boolean The Leave's has director approved
 	 */
 	public function getHasDirectorApproved() {
 		return $this->hasDirectorApproved;
 	}
 
 	/**
-	 * @param boolean $hasDirectorApproved
+	 * Sets this Leave's has director approved
+	 *
+	 * @param boolean $hasDirectorApproved The Leave's has director approved
+	 *
 	 * @return void
 	 */
 	public function setHasDirectorApproved($hasDirectorApproved) {
@@ -167,13 +192,17 @@ class Leave {
 	}
 
 	/**
-	 * @return \Cloudframe\Leavemanagement\Domain\Model\TeamLeader
+	 * Get the Leave's team leader
+	 *
+	 * @return \Cloudframe\Leavemanagement\Domain\Model\Employee The Leave's team leader
 	 */
 	public function getTeamLeader() {
 		return $this->teamLeader;
 	}
 
 	/**
+	 * Sets this Leave's team leader
+     * 
 	 * @param \Cloudframe\Leavemanagement\Domain\Model\TeamLeader $teamLeader
 	 * @return void
 	 */
@@ -182,6 +211,8 @@ class Leave {
 	}
 
 	/**
+	 * Get the Leave's employee
+     * 
 	 * @return \Cloudframe\Leavemanagement\Domain\Model\Employee
 	 */
 	public function getEmployee() {

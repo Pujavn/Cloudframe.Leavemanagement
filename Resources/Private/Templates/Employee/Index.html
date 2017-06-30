@@ -3,23 +3,45 @@
 <f:section name="Title">A list of employees</f:section>
 
 <f:section name="Content">
+	<div class="flashmsg">
+		<f:flashMessages/>
+	</div>
     <f:if condition="{employees}">
         <f:then>
-            <ul>
-                <f:for each="{employees}" as="employee">
-                    <li>
-                        <f:link.action action="show" arguments="{employee: employee}">{employee.name}</f:link.action>
-                        <f:link.action action="edit" arguments="{employee: employee}">Edit</f:link.action>
-                        <f:form action="delete" arguments="{employee: employee}">
-                            <f:form.submit value="Delete" />
-                        </f:form>
-                    </li>
+            <h4>List of Employees</h4>
+			<div class="pagination">
+			<f:widget.paginate objects="{employees}" as="paginatedEmployees" configuration="{itemsPerPage: 5}">
+				<table class="table table-bordered">
+					<tr>
+						<th>
+							Employee Name
+						</th>
+						<th>
+							Edit
+						</th>
+						<th>
+							Delete
+						</th>
+					</tr>
+					<f:for each="{paginatedEmployees}" as="employee">
+						<f:if condition="{employee} != {currentEmployee}">
+							<f:cycle values="{0:'even',1:'odd'}" as="classname">
+								<tr class="{classname}">
+									<td>
+								<f:link.action action="show" arguments="{employee: employee}">{employee.name}</f:link.action></td>
+								<td>     <f:link.action action="edit" arguments="{employee: employee}">Edit</f:link.action></td>
+								<td> <f:link.action action="delete" arguments="{employee: employee}" onclick="return confirm('Are you sure want to delete');">Delete</f:link.action></td>
+								</tr>
+							</f:cycle>
+						</f:if>
                 </f:for>
-            </ul>
+
+				</table>
+			</f:widget.paginate>
+			</div>
         </f:then>
         <f:else>
             <p>No employees created yet.</p>
         </f:else>
     </f:if>
-    <p><f:link.action action="new">Create a new employee</f:link.action></p>
 </f:section>

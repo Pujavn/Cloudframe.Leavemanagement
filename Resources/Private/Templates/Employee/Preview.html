@@ -1,0 +1,73 @@
+<f:layout name="Default" />
+<f:section name="Title">Preview</f:section>
+<f:section name="Content">
+
+    <f:form action="create" name="newEmployee" class="form-horizontal">
+        <fieldset>
+            <div class="control-group">
+                <label for="firstName" class="control-label">First Name:</label>
+                <div class="controls">
+                    {employee.name.firstName}
+                    <f:form.hidden property="name.firstName" value="{employee.name.firstName}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="lastName" class="control-label">Last Name</label>
+                <div class="controls">
+                    {employee.name.lastName}
+                    <f:form.hidden property="name.lastName" value="{employee.name.lastName}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="email" class="control-label">Email</label>
+                <div class="controls">
+                    {employee.primaryElectronicAddress.identifier}
+                    <f:form.hidden property="primaryElectronicAddress.identifier" value="{employee.primaryElectronicAddress.identifier}" />
+                    <f:form.hidden property="primaryElectronicAddress.type" value="Email" />
+                    <f:form.hidden property="primaryElectronicAddress.usage" value="Work" />
+                    <f:form.hidden name="password" value="{password}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="gender" class="control-label">Gender</label>
+                <div class="controls">
+                    <f:if condition="{employee.gender} == 1">
+                        <f:then>Female</f:then>
+                        <f:else>Male</f:else>
+                    </f:if>
+                    <f:form.hidden property="gender" value="{employee.gender}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="address" class="control-label">Address</label>
+                <div class="controls">
+                    {employee.address}
+                    <f:form.hidden property="address" value="{employee.address}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="contactNumber" class="control-label">Contact number</label>
+                <div class="controls">
+                    {employee.contactNumber}
+                    <f:form.hidden property="contactNumber" value="{employee.contactNumber}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="role" class="control-label">Role</label>
+                <div class="controls">
+                    <f:if condition="{role} == 1">
+                        <f:then>Teamleader</f:then>
+                        <f:else>Developer</f:else>
+                    </f:if>
+                    <f:form.hidden name="role" value="{role}" />
+                </div>
+            </div>
+            <div class="control-group" >
+                <div class="controls">
+                    <button class="btn" type="button" onClick="javascript:history.back(1);">Back</button>
+                    <f:form.submit value="Create" class="btn" />
+                </div>
+            </div>
+        </fieldset>
+    </f:form>
+</f:section>

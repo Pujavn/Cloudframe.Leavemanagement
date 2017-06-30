@@ -2,54 +2,52 @@
 
 <f:section name="Title">New leave</f:section>
 
-<f:section name="Content">
-    <p>Just fill out the following form to create a new leave:</p>
+<f:section name="Content"> <script type="text/javascript" src="{f:uri.resource(path: 'js/jquery-1.8.2.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/jquery.validate.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/customValidation.js')}"></script>
 
-    <f:form action="create" objectName="newLeave">
-        <ol>
-            <li>
-                <label for="reason">Reason</label>
-                <f:form.textfield property="reason" id="reason" />
-            </li>
-        
-            <li>
-                <label for="createDate">Create date</label>
-                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
-            </li>
-        
-            <li>
-                <label for="fromDate">From date</label>
-                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="fromDate" id="fromDate" />
-            </li>
-        
-            <li>
-                <label for="toDate">To date</label>
-                <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="toDate" id="toDate" />
-            </li>
-        
-            <li>
-                <label for="hasTeamLeaderApproved">Has team leader approved</label>
-                <f:form.textfield property="hasTeamLeaderApproved" id="hasTeamLeaderApproved" />
-            </li>
-        
-            <li>
-                <label for="hasDirectorApproved">Has director approved</label>
-                <f:form.textfield property="hasDirectorApproved" id="hasDirectorApproved" />
-            </li>
-        
-            <li>
-                <label for="teamLeader">Team leader</label>
-                <f:form.textfield property="teamLeader" id="teamLeader" />
-            </li>
-        
-            <li>
-                <label for="employee">Employee</label>
-                <f:form.textfield property="employee" id="employee" />
-            </li>
-        
-            <li>
-                <f:form.submit value="Create" />
-            </li>
-        </ol>
+	<link href="{f:uri.resource(path:'css/jquery.ui.all.css')}" type="text/css" rel="stylesheet" />
+	<link href="{f:uri.resource(path:'css/jquery.ui.css')}" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{f:uri.resource(path: 'js/datepicker/jquery.ui.core.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/datepicker/jquery.ui.widget.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/datepicker/jquery.ui.datepicker.js')}"></script>
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/datepicker/customDate.js')}"></script>
+	<div>
+                <f:render partial="FormErrors" />
+    </div>
+    <p>Just fill out the following form to create a new leave:</p>
+    <f:form action="preview" name="newLeave" class="form-horizontal">
+        <fieldset>
+            <div class="control-group">
+                <label for="reason" class="control-label">Reason</label>
+                <div class="controls">
+                    <f:form.textfield property="reason" id="reason" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="from" class="control-label">From</label>
+                <div class="controls">
+                    <f:form.textfield type="datetime" property="fromDate" id="from" class="datePicker" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="to" class="control-label">To</label>
+                <div class="controls">
+                    <f:form.textfield type="datetime" property="toDate" id="to" class="datePicker" />
+                </div>
+            </div>
+            <div class="control-group" >
+				<label for="teamLeader" class="control-label">Team Leader</label>
+				<div class="controls">
+					<f:form.select property="teamLeader" id="teamLeader" options="{teamLeaders}" optionLabelField="name.firstName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <f:link.action action="profile" controller="employee" class="btn">Cancel</f:link.action>
+					<f:form.submit value="Preview" class="btn" />
+                </div>
+            </div>
+        </fieldset>
     </f:form>
 </f:section>

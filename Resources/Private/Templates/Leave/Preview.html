@@ -1,0 +1,62 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Preview</f:section>
+
+<f:section name="Content">
+    <script>
+        function goBack()
+        {
+            window.history.back()
+        }
+    </script>
+    <f:form action="create" name="newLeave" class="form-horizontal">
+        <fieldset>
+            <legend>Preview</legend>
+            <div class="control-group">
+
+                <label for="reason" class="control-label">Reason</label>
+
+                <div class="controls">
+                    {leave.reason}
+                    <f:form.hidden property="reason" value="{leave.reason}" />
+                </div>
+                <div ></div>
+            </div>
+            <div class="control-group">
+
+                <label for="from" class="control-label">From</label>
+
+                <div class="controls">
+                    <f:format.date format="Y-m-d">{leave.fromDate}</f:format.date>
+                    <f:form.hidden property="fromDate" value="<f:format.date format='Y-m-d'>{leave.fromDate}</f:format.date>" />
+                </div>
+
+            </div>
+            <div class="control-group">
+
+                <label for="to" class="control-label">To</label>
+
+                <div class="controls">
+                    <f:format.date format="Y-m-d">{leave.toDate}</f:format.date>
+                    <f:form.hidden property="toDate" value="<f:format.date format='Y-m-d'>{leave.toDate}</f:format.date>" />
+                </div>
+
+            </div>
+            <div class="control-group">
+
+                <label for="teamLeader" class="control-label">Team leader</label>
+
+                <div class="controls">
+                    {leave.teamLeader.name.firstName}
+                    <f:form.hidden property="teamLeader" value="{leave.teamLeader}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="button" onClick="javascript:history.back(1);" class="btn">Back</button>
+                    <f:form.submit value="Create" class="btn" />
+                </div>
+            </div>
+        </fieldset>
+    </f:form>
+</f:section>

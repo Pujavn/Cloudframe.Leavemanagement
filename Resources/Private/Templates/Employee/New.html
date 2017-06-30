@@ -3,26 +3,91 @@
 <f:section name="Title">New employee</f:section>
 
 <f:section name="Content">
+    <script type="text/javascript" src="{f:uri.resource(path: 'js/jquery-1.8.2.js')}"></script>
+		<script type="text/javascript" src="{f:uri.resource(path: 'js/jquery.validate.js')}"></script>
+		<script type="text/javascript" src="{f:uri.resource(path: 'js/customValidation.js')}"></script>
+    <f:flashMessages class="flashmessages" />
+    <f:form.validationResults for="newEmployee">
+        <f:if condition="{validationResults.flattenedErrors}">
+            <div class="error">
+                <dl>
+                    <f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+                        <dt>{propertyPath}</dt>
+                        <dd>
+                            <ul>
+                                <f:for each="{errors}" as="error">
+                                    <li>{error}</li>
+                                </f:for>
+                            </ul>
+                        </dd>
+                    </f:for>
+                </dl>
+            </div>
+        </f:if>
+    </f:form.validationResults>
     <p>Just fill out the following form to create a new employee:</p>
-
-    <f:form action="create" objectName="newEmployee">
-        <ol>
-            <li>
-                <label for="gender">Gender</label>
-                <f:form.textfield property="gender" id="gender" />
-            </li>
+    
+    <f:form action="preview" name="newEmployee" controller="Employee" id="newEmployee" class="form-horizontal">
+        <fieldset>
+            <legend>Registration Form</legend>
+            <div class="control-group">
+                <label for="firstName" class="control-label">First Name</label>
+                <div class="controls">
+                    <f:form.textfield property="name.firstName" id="firstName"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="lastName" class="control-label" >Last Name</label>
+                <div class="controls">
+                    <f:form.textfield property="name.lastName" id="lastName" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="email" class="control-label"> Email</label>
+                <div class="controls">
+                    <f:form.textfield property="primaryElectronicAddress.identifier" id="email" />
+                    <f:form.hidden property="primaryElectronicAddress.type" value="Email" />
+                    <f:form.hidden property="primaryElectronicAddress.usage" value="Work" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="password" class="control-label">Password</label>
+                <div class="controls">
+                    <f:form.password name="password" id="password" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="gender" class="control-label">Gender</label>
+                <div class="controls">
+                    <label> <f:form.radio property="gender" value="0" checked="checked" /><span class="radio">Male</span></label>
+                    <label> <f:form.radio property="gender" value="1"  /> <span class="radio">Female</span></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="address" class="control-label">Address</label>
+                <div class="controls">
+                    <f:form.textfield property="address" id="address" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="contactNumber" class="control-label">Contact number</label>
+                <div class="controls">
+                    <f:form.textfield property="contactNumber" id="contactNumber" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="role" class="control-label">Role</label>
+                <div class="controls">
+                    <f:form.select name="role" options="{1:'Team Leader', 2:'Developer'}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <f:form.submit value="Preview" class="btn" />
+                </div>
+            </div>
         
-            <li>
-                <label for="address">Address</label>
-                <f:form.textfield property="address" id="address" />
-            </li>
-        
-            <li>
-                <label for="contactNumber">Contact number</label>
-                <f:form.textfield property="contactNumber" id="contactNumber" />
-            </li>
-        
-            <li>
+            <!--<li>
                 <label for="createDate">Create date</label>
                 <f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createDate" id="createDate" />
             </li>
@@ -35,11 +100,11 @@
             <li>
                 <label for="leaves">Leaves</label>
                 <f:form.textfield property="leaves" id="leaves" />
-            </li>
+            </li>->
         
             <li>
                 <f:form.submit value="Create" />
-            </li>
-        </ol>
+            </li>-->
+        </fieldset>
     </f:form>
 </f:section>

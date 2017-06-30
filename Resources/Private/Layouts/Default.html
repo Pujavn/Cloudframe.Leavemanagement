@@ -2,13 +2,53 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title><f:render section="Title" /></title>
-        <f:base />
-    </head>
-    <body>
-        <f:flashMessages class="flashmessages" />
+    <f:base />
+    <title><f:render section="Title" />Leave Management</title>
 
-        <h1><f:render section="Title" /></h1>
-        <f:render section="Content" />
-    </body>
+
+
+    <link rel="stylesheet" href="{f:uri.resource(path: 'css/custom.css')}" type="text/css" media="screen, projection, tv" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'css/bootstrap.css')}" type="text/css" media="screen, projection, tv" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'css/bootstrap.min.css')}" type="text/css" media="screen, projection, tv" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'css/bootstrap-responsive.css')}" type="text/css" media="screen, projection, tv" />
+</head>
+<body>
+    <article>
+		<!--Header starts-->
+        <header class="row-fluid" id="header-bg">
+            <div class="span10 offset2">
+                <div class="span5 top-header">
+                </div>
+                <div class="span5 pull-right">
+                    <f:security.ifAuthenticated>
+						<f:then>
+							<f:render partial="LoginEmployee"/>
+						</f:then>
+						<f:else>
+							<ul class="nav pull-right">
+								<li>
+								<f:link.action action="login" controller="Employee">
+									Login
+								</f:link.action>
+								</li>
+							</ul>
+						</f:else>
+                    </f:security.ifAuthenticated>
+                </div>
+            </div>
+        </header>
+        <!--Header ends-->
+		<div class="container">
+			<f:render partial="Navigation"/>
+
+			<div class="main-content">
+				<strong><f:flashMessages class="flashmessages" /></strong>
+				<f:render section="Content" />
+			</div>
+		</div>
+		<footer>
+            <p>Copyright © 2013. All Rights Reserved.</p>
+        </footer>
+    </article>
+</body>
 </html>

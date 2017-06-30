@@ -1,0 +1,41 @@
+<f:layout name="Default" />
+
+<f:section name="Title"></f:section>
+
+<f:section name="Content">
+
+
+    <f:security.ifAuthenticated>
+        <f:then>You are already logged in.
+            <br /><br />
+            <f:security.ifHasRole role="Director">
+                <f:link.action action="index" controller="leave" >Click here to see all leaves.</f:link.action>
+            </f:security.ifHasRole>
+        </f:then>
+        <f:else>
+			<f:flashMessages />
+            <f:form action="authenticate" name="employee" controller="employee" method="POST" id="employee" class="form-horizontal">
+                <fieldset>
+                    <legend>Login</legend>
+                    <div class="control-group">
+                        <label for="username" class="control-label">Username</label>
+                        <div class="controls">
+                            <f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" tabindex="1" class="text" id="username" />
+                        </div>
+
+                    </div>
+                    <div class="control-group">
+                        <label for="password" class="control-label">Password</label>
+                        <div class="controls">
+                            <f:form.password  name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" tabindex="2" class="text" id="password"/>
+                        </div>
+                    </div>
+					<f:form.hidden name="leave" value="{leave}" />
+                    <div class="controls">
+                    <f:form.submit value="Login" class="btn"/>
+                    </div>
+                </fieldset>
+            </f:form>
+        </f:else>
+    </f:security.ifAuthenticated>
+</f:section>
