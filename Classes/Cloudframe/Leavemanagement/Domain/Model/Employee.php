@@ -17,7 +17,6 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	/**
 	 * The gender
 	 * @var boolean
-	 * @Flow\Validate(type="NotEmpty")
 	 * @ORM\Column(nullable=true)
 	 */
 	protected $gender;
@@ -25,7 +24,6 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	/**
 	 * The address
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
 	 * @Flow\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
 	 * @ORM\Column(nullable=true)
 	 */
@@ -34,7 +32,7 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 	/**
 	 * The contact number
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $contactNumber;
 
@@ -160,7 +158,7 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 
 	/**
 	 * Get the Employee's leaves
-     * 
+	 *
 	 * @return \Doctrine\Common\Collections\Collection
 	 */
 	public function getLeaves() {
@@ -169,7 +167,7 @@ class Employee extends \TYPO3\Party\Domain\Model\Person {
 
 	/**
 	 * Sets this Employee's leaves
-     * 
+	 *
 	 * @param \Doctrine\Common\Collections\Collection $leaves
 	 * @return void
 	 */

@@ -76,13 +76,13 @@ class EmployeeService {
 		$employee->addAccount($account);
 		$employee->setName($personName);
 		$employee->setToken('1');
-		/*$email = new \TYPO3\Party\Domain\Model\ElectronicAddress();
-		$email->setIdentifier($username);
-		$email->setApproved('TRUE');
-		$email->setType('Email');
-		$email->setUsage('Work');
-		$employee->setPrimaryElectronicAddress($email);*/
-        //Getting error for primary address
+		/* $email = new \TYPO3\Party\Domain\Model\ElectronicAddress();
+		  $email->setIdentifier($username);
+		  $email->setApproved('TRUE');
+		  $email->setType('Email');
+		  $email->setUsage('Work');
+		  $employee->setPrimaryElectronicAddress($email); */
+		//Getting error for primary address
 		$this->employeeRepository->add($employee);
 		$this->accountRepository->add($account);
 	}
@@ -143,9 +143,9 @@ class EmployeeService {
 	 */
 	public function logout() {
 		$this->authenticationManager->logout();
-}
+	}
 
-    /**
+	/**
 	 * Return all employees
 	 *
 	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
@@ -195,7 +195,7 @@ class EmployeeService {
 	 */
 	public function delete(\Cloudframe\Leavemanagement\Domain\Model\Employee $employee) {
 		$this->employeeRepository->remove($employee);
-}
+	}
 
 	/**
 	 * Removes the given employee object from the employee repository
