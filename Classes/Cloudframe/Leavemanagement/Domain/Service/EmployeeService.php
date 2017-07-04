@@ -76,12 +76,12 @@ class EmployeeService {
 		$employee->addAccount($account);
 		$employee->setName($personName);
 		$employee->setToken('1');
-		/* $email = new \TYPO3\Party\Domain\Model\ElectronicAddress();
+		$email = new \TYPO3\Party\Domain\Model\ElectronicAddress();
 		  $email->setIdentifier($username);
 		  $email->setApproved('TRUE');
 		  $email->setType('Email');
 		  $email->setUsage('Work');
-		  $employee->setPrimaryElectronicAddress($email); */
+		  $employee->setPrimaryElectronicAddress($email);
 		//Getting error for primary address
 		$this->employeeRepository->add($employee);
 		$this->accountRepository->add($account);
@@ -120,9 +120,9 @@ class EmployeeService {
 		$accounts = $this->accountRepository->findAll();
 		foreach ($accounts as $account) {
 			$existingAccount = $account->getAccountIdentifier();
-//			if ($emailAddress == $existingAccount) {
-//				throw new \Cloudframe\Leavemanagement\Domain\Service\Exception\EmployeeNotApprovedException();
-//			}
+			if ($emailAddress == $existingAccount) {
+				throw new \Cloudframe\Leavemanagement\Domain\Service\Exception\EmployeeNotApprovedException();
+			}
 		}
 		if ($role == 1) {
 			$roleIdentifiers = array('Cloudframe.Leavemanagement:Teamleader');

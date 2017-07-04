@@ -72,6 +72,7 @@ class LeaveController extends ActionController {
 	 * @return void
 	 */
 	public function newAction() {
+        //var_dump($)
 		$this->view->assign('teamLeaders', $this->leaveService->findTeamLeaders());
 	}
 
@@ -112,7 +113,7 @@ class LeaveController extends ActionController {
 	 */
 	public function createAction(\Cloudframe\Leavemanagement\Domain\Model\Leave $newLeave) {
 		$this->leaveService->createLeave($newLeave);
-		$this->emitLeaveCreated($newLeave, $this->controllerContext);
+		//$this->emitLeaveCreated($newLeave, $this->controllerContext);
 		$this->addFlashMessage('Leave has been sent for approval to your Team Leader');
 		$this->redirect('profile', 'Employee');
 	}
@@ -209,11 +210,11 @@ class LeaveController extends ActionController {
 		$currentUser =  $this->securityContext->getParty();
 		$role = $this->employeeService->getRole($currentUser);
 		if ($role == $this->settings['roles']['1']) {
-			$this->emitDirectorLeaveApproval($leave, $this->controllerContext);
+			//$this->emitDirectorLeaveApproval($leave, $this->controllerContext);
 			$this->redirect('index', 'Leave');
 		} else {
 
-			$this->emitTeamLeaderLeaveApproval($leave, $this->controllerContext);
+			//$this->emitTeamLeaderLeaveApproval($leave, $this->controllerContext);
 			$this->redirect('list', 'Leave');
 		}
 	}

@@ -1,6 +1,6 @@
 <!-- Navigation Menu -->
 <ul class="nav nav-pills nav-bg">
-    <!--<f:security.ifHasRole role="Director">
+    <f:security.ifHasRole role="Director">
         <li>
         <f:link.action action="index" controller="leave" >Show All Leaves</f:link.action>
         </li>
@@ -31,8 +31,8 @@
         <li>
         <f:link.action action="profile" controller="Employee">My Profile</f:link.action>
         </li>
-    </f:security.ifHasRole>-->
-    <li>
+    </f:security.ifHasRole>
+   <!-- <li>
         <f:link.action action="new" controller="Leave" >Apply for Leave</f:link.action>
     </li>
     <li>
@@ -43,6 +43,6 @@
     </li>
     <li>
         <f:link.action action="new" controller="Employee" >Register Employee</f:link.action>
-    </li>
+    </li>-->
 </ul>
 <!--End of Navigation Menu-->

@@ -1,3 +1,10 @@
+
+#resources:
+#  methods:
+#    CreateMethods: 'method(Cloudframe\Leavemanagement\Controller\EmployeeController->(new|create|delete)Action())'
+#    LoginMethods: 'method(Cloudframe\Leavemanagement\Controller\LeaveController->(new|create|delete|index)Action())'
+#    ProfileMethods: 'method(Cloudframe\LeaveManagement\Controller\EmployeeController->(profile)Action())'
+
 roles:
   Cloudframe.Leavemanagement:Director:
     privileges:[]
@@ -7,3 +14,18 @@ roles:
 
   Cloudframe.Leavemanagement:Developer:
     privileges:[]
+
+#acls:
+#  Director:
+#    methods:
+#      CreateMethods: GRANT
+#      LoginMethods:	GRANT
+#      ProfileMethods: GRANT
+#  Teamleader:
+#    methods:
+#      LoginMethods:	GRANT
+#      ProfileMethods: GRANT
+#  Developer:
+#    methods:
+#      LoginMethods:	GRANT
+#      ProfileMethods: GRANT

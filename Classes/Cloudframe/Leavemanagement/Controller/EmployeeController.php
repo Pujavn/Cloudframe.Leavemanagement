@@ -147,16 +147,16 @@ class EmployeeController extends ActionController
      */
     public function createAction(\Cloudframe\Leavemanagement\Domain\Model\Employee $newEmployee, $password, $role)
     {
-        var_dump('hi');
-        //try {
+        try {
 			$this->employeeService->createEmployee($newEmployee, $password, $role);
 			//$this->emitEmployeeCreated($newEmployee, $this->controllerContext, $password);
+            //var_dump($newEmployee);exit;
 			$this->addFlashMessage('Employee is created.', '', \TYPO3\Flow\Error\Message::SEVERITY_OK, array(), 1334428113);
 			$this->redirect('index', 'Employee');
-//		//} catch (\Cloudframe\Leavemanagement\Domain\Service\Exception\EmployeeNotApprovedException $exception) {
-//			$this->addFlashMessage('Employee email already exist.', '', \TYPO3\Flow\Error\Message::SEVERITY_ERROR, array(), 1334428113);
-//			$this->redirect('new', 'Employee');
-//		}
+		} catch (\Cloudframe\Leavemanagement\Domain\Service\Exception\EmployeeNotApprovedException $exception) {
+			$this->addFlashMessage('Employee email already exist.', '', \TYPO3\Flow\Error\Message::SEVERITY_ERROR, array(), 1334428113);
+			$this->redirect('new', 'Employee');
+		}
     }
 
     /**

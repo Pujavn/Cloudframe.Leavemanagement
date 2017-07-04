@@ -9,20 +9,24 @@
 #                                                                        #
 
 
-#TYPO3:
-#  Flow:
-#    security:
-#      authentication:
-#        authenticationStrategy: oneToken
-#        providers:
-#          DefaultProvider:
-#            provider: 'PersistedUsernamePasswordProvider'
-#            entryPoint: 'WebRedirect'
-#            entryPointOptions:
-#              uri: 'employee/login'
+TYPO3:
+  Flow:
+    security:
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+          DefaultProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              uri: 'employee/login'
             
 Cloudframe:
   Leavemanagement:
+    notifications:
+      from:
+        email: 'naikpujavinayak@gmail.com'
+        name: 'Cloudframe Admin'
     roles:
       1: 'Cloudframe.Leavemanagement:Director'
       2: 'Cloudframe.Leavemanagement:Teamleader'

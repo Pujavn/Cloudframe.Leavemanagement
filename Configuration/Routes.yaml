@@ -1,0 +1,33 @@
+#                                                                        #
+# Routes configuration                                                   #
+#                                                                        #
+# This file contains the configuration for the MVC router.               #
+# Just add your own modifications as necessary.                          #
+#                                                                        #
+# Please refer to the FLOW3 manual for possible configuration options.   #
+#                                                                        #
+
+##
+# Subroutes from the Welcome package.
+#
+# If the package "Welcome" is installed, its fallback route will point to an
+# informative welcome screen.
+-
+  name: 'login'
+  uriPattern: ''
+  defaults:
+    '@package': 'Cloudframe.Leavemanagement'
+    '@controller': 'Employee'
+    '@action': 'login'
+-    
+  name: 'employee'
+  uriPattern: 'employee/{@action}'
+  defaults:
+    '@package': 'Cloudframe.Leavemanagement'
+    '@controller': 'Employee'
+-
+  name: 'leave'
+  uriPattern: 'leave/{@action}'
+  defaults:
+    '@package': 'Cloudframe.Leavemanagement'
+    '@controller': 'Leave'

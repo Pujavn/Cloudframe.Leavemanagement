@@ -66,7 +66,8 @@ class Notification {
 		$toName = $employee->getName()->getFirstName() . ' ' . $employee->getName()->getLastName();
 		$this->standaloneView->assign('username', $toEmail);
 		$emailBody = $this->standaloneView->render();
-		$mail = new \TYPO3\SwiftMailer\Message();
+		//$mail = new \TYPO3\SwiftMailer\Message();
+        $mail = new \Swift_Message();
 		$mail->setFrom(array($this->settings['notifications']['from']['email'] => $this->settings['notifications']['from']['name']))
 				->setTo(array($toEmail => $toName))
 				->setSubject('Cloudframe Leave Registration')
